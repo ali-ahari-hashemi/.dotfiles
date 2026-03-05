@@ -1,3 +1,4 @@
+# Oh My Zsh
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 plugins=(git kubectl)
@@ -6,15 +7,19 @@ source $ZSH/oh-my-zsh.sh
 # Brew
 export PATH="/opt/homebrew/bin:$PATH"
 
-#Pyenv
+# Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
-#Path
+# Local Binaries
 export PATH="$HOME/.local/bin:$PATH"
+
+# Go
 export PATH="/usr/local/go/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 
 #NVM
 export NVM_DIR="$HOME/.nvm"
@@ -28,4 +33,8 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
+
+# Load local workspace zshrc if it exists
+if [ -f .zshrc.local ]; then
+    source .zshrc.local
+fi
