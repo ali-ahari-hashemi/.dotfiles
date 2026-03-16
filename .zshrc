@@ -3,7 +3,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 
 # starship prompt
 eval "$(starship init zsh)"
-export STARSHIP_CONFIG=~/.starship.toml
+export STARSHIP_CONFIG="$HOME/.starship.toml"
 
 # Case insensitive utocomplete
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
