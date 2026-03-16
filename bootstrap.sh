@@ -5,4 +5,5 @@ ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/.dotfiles/nvim ~/.config/nvim
 ln -sf ~/.dotfiles/.wezterm.lua ~/.wezterm.lua
+ln -sf ~/.dotfiles/.starship.toml ~/.starship.toml
 

@@ -1,11 +1,16 @@
-# Oh My Zsh
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-plugins=(git kubectl)
-source $ZSH/oh-my-zsh.sh
-
 # Brew
 export PATH="/opt/homebrew/bin:$PATH"
+
+# starship prompt
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.starship.toml
+
+# Case insensitive utocomplete
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+
+# Set default editors
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -26,7 +31,6 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-
 # pnpm
 export PNPM_HOME="/Users/alihashemi/Library/pnpm"
 case ":$PATH:" in
@@ -35,6 +39,6 @@ case ":$PATH:" in
 esac
 
 # Load local workspace zshrc if it exists
-if [ -f .zshrc.local ]; then
-    source .zshrc.local
+if [ -f "$HOME/.zshrc.local" ]; then
+    source "$HOME/.zshrc.local"
 fi
