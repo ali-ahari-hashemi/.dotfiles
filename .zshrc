@@ -8,6 +8,13 @@ export STARSHIP_CONFIG="$HOME/.starship.toml"
 # Autocomplete
 autoload -Uz compinit
 compinit
+
+# Command history
+bindkey "^R" history-incremental-search-backward
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+
+# Case insensitive autocomplete
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
 # FZF integration
