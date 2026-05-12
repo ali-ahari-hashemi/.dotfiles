@@ -5,8 +5,13 @@ export PATH="/opt/homebrew/bin:$PATH"
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG="$HOME/.starship.toml"
 
-# Case insensitive utocomplete
+# Autocomplete
+autoload -Uz compinit
+compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+
+# FZF integration
+source <(fzf --zsh)
 
 # Set default editors
 export EDITOR="nvim"
